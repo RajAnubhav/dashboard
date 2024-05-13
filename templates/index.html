@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pothole Data</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script>
+        // Function to refresh the page every 15 seconds
+        setInterval(function() {
+            location.reload();
+        }, 15000); // 15 seconds in milliseconds
+    </script>
+</head>
+<body>
+    <h1>Pothole Data</h1>
+    <table>
+        <tr>
+            <th>Status</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Location</th>
+        </tr>
+        {% for entry in data %}
+        <tr>
+            <td>{{ entry.status }}</td>
+            <td>{{ entry.coordinates.latitude }}</td>
+            <td>{{ entry.coordinates.longitude }}</td>
+            <td><a href="https://www.google.com/maps/search/{{ entry.coordinates.latitude }},{{ entry.coordinates.longitude }}" target="_blank">View Location</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
