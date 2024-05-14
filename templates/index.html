@@ -33,6 +33,7 @@
             <th>Latitude</th>
             <th>Longitude</th>
             <th>Location</th>
+            <th>Timestamp</th>
         </tr>
         {% for entry in data %}
         <tr>
@@ -40,6 +41,7 @@
             <td>{{ entry.coordinates.latitude }}</td>
             <td>{{ entry.coordinates.longitude }}</td>
             <td><a href="https://www.google.com/maps/search/{{ entry.coordinates.latitude }},{{ entry.coordinates.longitude }}" target="_blank">View Location</a></td>
+            <td>{{ entry.timestamp }}</td>
         </tr>
         {% endfor %}
     </table>
